@@ -1,0 +1,32 @@
+# harness.io/skip-file-for-deploy
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-testing-{{.Values.name}}
+spec:
+#  selector:
+#    matchLabels:
+#      app: {{.Values.name}}
+  ttlSecondsAfterFinished: 10
+  template:
+    #metadata:
+    #  labels:
+    #    app: {{.Values.name}}
+    spec:
+      containers:
+      - name: load-tester
+        image: bunchjesse/loadtest:latest
+        #command:
+        #  - loadtest
+        env:
+          - name: DURATION
+            value: "400"
+          - name: NUM_USERS
+            value: "100"
+          - name: REQUESTS_PER_SECOND
+            value: "2000"
+          - name: URL
+            value:  {{.Values.test_endpoint | quote}}
+      restartPolicy: Never
+  backoffLimit: 4
