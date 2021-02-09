@@ -20,7 +20,7 @@ spec:
         #  - loadtest
         env:
           - name: DURATION
-            value: "400"
+            value: "600" #10 min
           - name: NUM_USERS
             value: "100"
           - name: REQUESTS_PER_SECOND
