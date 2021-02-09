@@ -179,7 +179,10 @@ phases:
               }
             }
         stateType: STACK_DRIVER
-        timeDuration: '5'
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        timeDuration: '10'
     stepsInParallel: false
     waitInterval: 5
   - type: K8S_PHASE_STEP
