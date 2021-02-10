@@ -6,7 +6,7 @@ test_endpoint: "http://35.225.28.249:80"
 #image: ${artifact.metadata.image}
 dockercfg: ${artifact.source.dockerconfig}
 
-#createNamespace: true
+createNamespace: true
 namespace: ${infra.kubernetes.namespace}
 
 # Service Type allow you to specify what kind of service you want.
