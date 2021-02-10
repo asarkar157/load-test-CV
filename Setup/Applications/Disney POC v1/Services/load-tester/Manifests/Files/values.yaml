@@ -1,6 +1,6 @@
 name: ${service.name}
 #replicas: 1
-load_intensity: ${workflow.variables.load_test_intensity}
+load_intensity: ${serviceVariable.load_intensity}
 test_endpoint: "http://35.225.28.249:80"
 
 #image: ${artifact.metadata.image}
