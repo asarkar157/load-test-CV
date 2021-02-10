@@ -57,12 +57,14 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     failureStrategies:
-    - failureTypes:
+    - actionAfterTimeout: END_EXECUTION
+      failureTypes:
       - CONNECTIVITY
       - AUTHENTICATION
       - VERIFICATION_FAILURE
       - APPLICATION_ERROR
-      repairActionCode: IGNORE
+      manualInterventionTimeout: 1209600000
+      repairActionCode: MANUAL_INTERVENTION
       retryCount: 0
       specificSteps:
       - Run Load Test job
