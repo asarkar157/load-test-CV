@@ -45,15 +45,15 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
-    - type: K8S_DEPLOYMENT_ROLLING
-      name: Rollout Deployment
-      properties:
-        stateTimeoutInMinutes: 10
     - type: BARRIER
       name: Wait for Canary deployment to finish
       properties:
         identifier: C1
         timeoutMillis: '600000'
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+      properties:
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     failureStrategies:
