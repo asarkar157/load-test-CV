@@ -11,3 +11,21 @@ pipelineStages:
   workflowVariables:
   - name: replicas
     value: '3'
+- type: ENV_STATE
+  name: Enable Prod Traffic to Canary Pods
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: load test deployer
+  workflowVariables:
+  - name: load_test_intensity
+    value: '2'
+  - name: test_endpoint_URL
+    value: http://35.225.28.249:80
+  - entityType: ENVIRONMENT
+    name: Environment
+    value: Prod Env
+  - entityType: INFRASTRUCTURE_DEFINITION
+    name: InfraDefinition_KUBERNETES
+    value: prod-traffic-tester-infra
