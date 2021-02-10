@@ -1,7 +1,7 @@
 harnessApiVersion: '1.0'
 type: ROLLING
 concurrencyStrategy: INFRA
-envName: POC test cluster
+envName: Staging Env
 failureStrategies:
 - executionScope: WORKFLOW
   failureTypes:
@@ -49,6 +49,11 @@ phases:
       name: Rollout Deployment
       properties:
         stateTimeoutInMinutes: 10
+    - type: BARRIER
+      name: Wait for Canary deployment to finish
+      properties:
+        identifier: C1
+        timeoutMillis: '600000'
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     failureStrategies:
