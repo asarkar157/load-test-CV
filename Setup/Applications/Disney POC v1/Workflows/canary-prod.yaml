@@ -34,6 +34,53 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
+    steps:
+    - type: STACK_DRIVER
+      name: Stackdriver
+      properties:
+        analysisServerConfigId: iA2WbWugS1ieVPI-Ek36tw
+        analysisTolerance: LOW
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        logsConfiguration: false
+        metricDefinitions:
+        - metricName: CPU Utilization
+          metricType: VALUE
+          txnName: Overload Index
+          filterJson: |-
+            {
+              "dataSets": [
+                {
+                  "timeSeriesFilter": {
+                    "filter": "metric.type=\"kubernetes.io/container/cpu/core_usage_time\" resource.type=\"k8s_container\" resource.label.\"cluster_name\"=\"disney-poc\" resource.label.\"namespace_name\"=\"prod\" resource.label.\"pod_name\"=\"${host}\"",
+                    "minAlignmentPeriod": "60s",
+                    "unitOverride": "s{CPU}",
+                    "aggregations": [
+                      {
+                        "perSeriesAligner": "ALIGN_RATE",
+                        "crossSeriesReducer": "REDUCE_NONE",
+                        "groupByFields": []
+                      },
+                      {
+                        "crossSeriesReducer": "REDUCE_NONE"
+                      }
+                    ]
+                  },
+                  "targetAxis": "Y1",
+                  "plotType": "LINE"
+                }
+              ],
+              "options": {
+                "mode": "COLOR"
+              },
+              "constantLines": [],
+              "timeshiftDuration": "0s",
+              "y1Axis": {
+                "label": "y1Axis",
+                "scale": "LINEAR"
+              }
+            }
+        stateType: STACK_DRIVER
+        timeDuration: '10'
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
