@@ -132,6 +132,13 @@ rollbackPhases:
     name: Deploy
     phaseStepNameForRollback: Deploy
     statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DELETE
+      name: Delete Canary Workload
+      properties:
+        deleteNamespacesForRelease: false
+        resources: Deployment/${k8s.canaryWorkload}
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
