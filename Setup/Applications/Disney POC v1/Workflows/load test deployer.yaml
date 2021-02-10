@@ -180,8 +180,9 @@ userVariables:
   mandatory: true
   name: InfraDefinition_KUBERNETES
 - type: TEXT
+  description: Do not adjust
   fixed: false
-  mandatory: true
+  mandatory: false
   name: test_endpoint_URL
   value: http://35.225.28.249:80
 - type: TEXT
