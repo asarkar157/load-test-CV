@@ -71,9 +71,12 @@ phases:
     - type: K8S_APPLY
       name: Run Load Test job
       properties:
-        filePaths: templates/loadTest_job.yaml, templates/loadTest_service.yaml
+        filePaths: templates/loadTest_job.yaml, templates/loadTest_service.yaml, templates/loadTest_namespace.yaml
         skipSteadyStateCheck: true
         stateTimeoutInMinutes: 7
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: true
   - type: K8S_PHASE_STEP
     name: Wrap Up
