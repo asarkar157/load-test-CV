@@ -58,7 +58,6 @@ phases:
                   "timeSeriesFilter": {
                     "filter": "metric.type=\"kubernetes.io/container/cpu/core_usage_time\" resource.type=\"k8s_container\" resource.label.\"cluster_name\"=\"disney-poc\" resource.label.\"namespace_name\"=\"prod\" resource.label.\"pod_name\"=\"${host}\"",
                     "minAlignmentPeriod": "60s",
-                    "unitOverride": "s{CPU}",
                     "aggregations": [
                       {
                         "perSeriesAligner": "ALIGN_RATE",
@@ -85,7 +84,10 @@ phases:
               }
             }
         stateType: STACK_DRIVER
-        timeDuration: '10'
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        timeDuration: '5'
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
