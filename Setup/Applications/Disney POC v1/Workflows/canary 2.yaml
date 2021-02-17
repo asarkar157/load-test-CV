@@ -21,41 +21,6 @@ phases:
   computeProviderName: Harness SE Cluster
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
-  name: Canary
-  phaseSteps:
-  - type: K8S_PHASE_STEP
-    name: Deploy
-    steps:
-    - type: K8S_CANARY_DEPLOY
-      name: Canary Deployment
-      properties:
-        instanceUnitType: COUNT
-        instances: '1'
-    stepsInParallel: false
-  - type: K8S_PHASE_STEP
-    name: Verify
-    stepsInParallel: false
-  - type: K8S_PHASE_STEP
-    name: Wrap Up
-    steps:
-    - type: K8S_DELETE
-      name: Canary Delete
-      properties:
-        deleteNamespacesForRelease: false
-        instanceUnitType: COUNT
-        resources: ${k8s.canaryWorkload}
-        stateTimeoutInMinutes: 10
-        templateUuid: null
-        templateVariables: null
-        templateVersion: null
-    stepsInParallel: false
-  provisionNodes: false
-  serviceName: nginx-replicated
-  statefulSet: false
-- type: KUBERNETES
-  computeProviderName: Harness SE Cluster
-  daemonSet: false
-  infraDefinitionName: se-cluster-deployer
   name: Primary
   phaseSteps:
   - type: K8S_PHASE_STEP
@@ -74,31 +39,6 @@ phases:
   serviceName: nginx-replicated
   statefulSet: false
 rollbackPhases:
-- type: KUBERNETES
-  daemonSet: false
-  infraDefinitionName: se-cluster-deployer
-  name: Rollback Canary
-  phaseNameForRollback: Canary
-  phaseSteps:
-  - type: K8S_PHASE_STEP
-    name: Deploy
-    phaseStepNameForRollback: Deploy
-    statusForRollback: SUCCESS
-    steps:
-    - type: K8S_DELETE
-      name: Delete
-      properties:
-        deleteNamespacesForRelease: false
-        resources: ${k8s.canaryWorkload}
-        stateTimeoutInMinutes: 10
-    stepsInParallel: false
-  - type: K8S_PHASE_STEP
-    name: Wrap Up
-    phaseStepNameForRollback: Wrap Up
-    stepsInParallel: false
-  provisionNodes: false
-  serviceName: nginx-replicated
-  statefulSet: false
 - type: KUBERNETES
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
