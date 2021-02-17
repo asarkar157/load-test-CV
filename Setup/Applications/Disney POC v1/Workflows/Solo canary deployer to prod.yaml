@@ -37,6 +37,11 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
+    stepSkipStrategies:
+    - assertionExpression: 1==1
+      scope: SPECIFIC_STEPS
+      steps:
+      - Canary Delete
     steps:
     - type: K8S_DELETE
       name: Canary Delete
