@@ -110,4 +110,10 @@ rollbackPhases:
   provisionNodes: false
   serviceName: nginx-replicated
   statefulSet: false
-templatized: false
+templatized: true
+userVariables:
+- type: TEXT
+  fixed: false
+  mandatory: true
+  name: replicas
+  value: '3'
