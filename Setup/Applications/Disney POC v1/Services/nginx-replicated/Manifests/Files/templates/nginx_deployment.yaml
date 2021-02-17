@@ -17,7 +17,7 @@ spec:
         image: {{.Values.image}}
         ports:
         - containerPort: 80
-        #resources:
-        #  limits:
-        #    cpu: "50m"
-        #    memory: "15Mi"
+        resources:
+          limits:
+            cpu: "30m"
+            memory: "10Mi"
