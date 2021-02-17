@@ -1,7 +1,7 @@
 harnessApiVersion: '1.0'
 type: CANARY
 concurrencyStrategy: INFRA
-envName: POC test cluster
+envName: Prod Env
 failureStrategies:
 - executionScope: WORKFLOW
   failureTypes:
@@ -75,7 +75,6 @@ phases:
   statefulSet: false
 rollbackPhases:
 - type: KUBERNETES
-  computeProviderName: Harness SE Cluster
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
   name: Rollback Canary
@@ -101,7 +100,6 @@ rollbackPhases:
   serviceName: nginx-replicated
   statefulSet: false
 - type: KUBERNETES
-  computeProviderName: Harness SE Cluster
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
   name: Rollback Primary
