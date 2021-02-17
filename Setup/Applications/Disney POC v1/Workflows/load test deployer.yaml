@@ -140,6 +140,11 @@ rollbackPhases:
     name: Deploy
     phaseStepNameForRollback: Deploy
     statusForRollback: SUCCESS
+    stepSkipStrategies:
+    - assertionExpression: 1==1
+      scope: SPECIFIC_STEPS
+      steps:
+      - Rollback Deployment
     steps:
     - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
       name: Rollback Deployment
