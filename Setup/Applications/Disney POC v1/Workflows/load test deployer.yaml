@@ -143,6 +143,12 @@ rollbackPhases:
     steps:
     - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
       name: Rollback Deployment
+    - type: K8S_DELETE
+      name: Delete Job
+      properties:
+        deleteNamespacesForRelease: false
+        resources: Job/${service.name}
+        stateTimeoutInMinutes: 3
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
