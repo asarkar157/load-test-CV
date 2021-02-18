@@ -7,7 +7,7 @@ connectorName: Harness SE GCP
 enabled24x7: true
 metricDefinitions:
 - aggregation:
-    crossSeriesReducer: REDUCE_NONE
+    crossSeriesReducer: REDUCE_MEAN
     perSeriesAligner: ALIGN_RATE
   filter: metric.type="kubernetes.io/container/cpu/core_usage_time" resource.type="k8s_container" resource.label."cluster_name"="disney-poc" resource.label."namespace_name"="prod"
   filterJson: |-
@@ -20,7 +20,7 @@ metricDefinitions:
             "aggregations": [
               {
                 "perSeriesAligner": "ALIGN_RATE",
-                "crossSeriesReducer": "REDUCE_NONE",
+                "crossSeriesReducer": "REDUCE_MEAN",
                 "groupByFields": []
               },
               {
