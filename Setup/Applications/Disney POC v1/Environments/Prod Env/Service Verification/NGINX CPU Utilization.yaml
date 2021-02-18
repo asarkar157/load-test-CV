@@ -1,0 +1,49 @@
+harnessApiVersion: '1.0'
+type: STACK_DRIVER
+alertEnabled: false
+alertThreshold: 0.5
+analysisTolerance: LOW
+connectorName: Harness SE GCP
+enabled24x7: true
+metricDefinitions:
+- aggregation:
+    crossSeriesReducer: REDUCE_NONE
+    perSeriesAligner: ALIGN_RATE
+  filter: metric.type="kubernetes.io/container/cpu/core_usage_time" resource.type="k8s_container" resource.label."cluster_name"="disney-poc" resource.label."namespace_name"="prod"
+  filterJson: |-
+    {
+      "dataSets": [
+        {
+          "timeSeriesFilter": {
+            "filter": "metric.type=\"kubernetes.io/container/cpu/core_usage_time\" resource.type=\"k8s_container\" resource.label.\"cluster_name\"=\"disney-poc\" resource.label.\"namespace_name\"=\"prod\"",
+            "minAlignmentPeriod": "60s",
+            "aggregations": [
+              {
+                "perSeriesAligner": "ALIGN_RATE",
+                "crossSeriesReducer": "REDUCE_NONE",
+                "groupByFields": []
+              },
+              {
+                "crossSeriesReducer": "REDUCE_NONE"
+              }
+            ]
+          },
+          "targetAxis": "Y1",
+          "plotType": "LINE"
+        }
+      ],
+      "options": {
+        "mode": "COLOR"
+      },
+      "constantLines": [],
+      "timeshiftDuration": "0s",
+      "y1Axis": {
+        "label": "y1Axis",
+        "scale": "LINEAR"
+      }
+    }
+  metricName: CPU
+  metricType: VALUE
+  txnName: Resource Overload
+numOfOccurrencesForAlert: 1
+serviceName: nginx-replicated
