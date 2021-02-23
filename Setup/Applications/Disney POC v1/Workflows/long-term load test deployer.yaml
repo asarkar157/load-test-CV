@@ -88,6 +88,15 @@ phases:
       steps:
       - Load test log output
     steps:
+    - type: K8S_DELETE
+      name: Delete Load Tester Job
+      properties:
+        deleteNamespacesForRelease: false
+        resources: Job/${service.name}
+        stateTimeoutInMinutes: 3
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     - type: SHELL_SCRIPT
       name: Load test log output
       properties:
@@ -108,15 +117,6 @@ phases:
         templateExpressions: null
         templateVariables: ''
         timeoutMillis: 360000
-    - type: K8S_DELETE
-      name: Delete Load Tester Job
-      properties:
-        deleteNamespacesForRelease: false
-        resources: Job/${service.name}
-        stateTimeoutInMinutes: 3
-        templateUuid: null
-        templateVariables: null
-        templateVersion: null
     stepsInParallel: false
   provisionNodes: false
   serviceName: load-tester
