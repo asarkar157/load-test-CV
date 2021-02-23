@@ -116,7 +116,7 @@ phases:
         timeoutMillis: 360000
     stepsInParallel: false
   provisionNodes: false
-  serviceName: load-tester
+  serviceName: long-term-load
   statefulSet: false
   templateExpressions:
   - expression: ${InfraDefinition_KUBERNETES}
@@ -157,7 +157,7 @@ rollbackPhases:
     phaseStepNameForRollback: Wrap Up
     stepsInParallel: false
   provisionNodes: false
-  serviceName: load-tester
+  serviceName: long-term-load
   statefulSet: false
   templateExpressions:
   - expression: ${InfraDefinition_KUBERNETES}
