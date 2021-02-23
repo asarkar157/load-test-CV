@@ -75,7 +75,7 @@ phases:
       properties:
         filePaths: templates/loadTest_job.yaml, templates/loadTest_service.yaml, templates/loadTest_namespace.yaml
         skipSteadyStateCheck: true
-        stateTimeoutInMinutes: 15
+        stateTimeoutInMinutes: 300
         templateUuid: null
         templateVariables: null
         templateVersion: null
