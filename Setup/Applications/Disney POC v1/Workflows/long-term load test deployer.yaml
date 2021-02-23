@@ -36,17 +36,17 @@ phases:
       properties:
         identifier: A1
         timeoutMillis: '600000'
-    - type: BARRIER
-      name: Wait for Canary deployment to finish
-      properties:
-        identifier: C1
-        timeoutMillis: '600000'
     - type: K8S_DELETE
       name: Delete Old Job
       properties:
         deleteNamespacesForRelease: false
         resources: Job/${service.name}
         stateTimeoutInMinutes: 10
+    - type: BARRIER
+      name: Wait for Canary deployment to finish
+      properties:
+        identifier: C1
+        timeoutMillis: '600000'
     - type: K8S_DELETE
       name: Clean Up Old Load Test Job
       properties:
