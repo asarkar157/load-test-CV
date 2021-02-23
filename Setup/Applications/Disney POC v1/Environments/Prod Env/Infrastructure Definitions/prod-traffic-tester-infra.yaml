@@ -9,3 +9,4 @@ infrastructure:
   releaseName: release-${infra.kubernetes.infraId}
 scopedServices:
 - load-tester
+- long-term-load
