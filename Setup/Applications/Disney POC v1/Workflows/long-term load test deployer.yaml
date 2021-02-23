@@ -54,6 +54,12 @@ phases:
       name: Rollout Deployment
       properties:
         stateTimeoutInMinutes: 10
+    - type: K8S_DELETE
+      name: Delete Old Job
+      properties:
+        deleteNamespacesForRelease: false
+        resources: Job/${service.name}
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     failureStrategies:
