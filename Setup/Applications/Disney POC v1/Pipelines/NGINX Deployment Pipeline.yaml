@@ -16,5 +16,13 @@ pipelineStages:
   stageName: STAGE 1
   workflowName: load test deployer
   workflowVariables:
+  - name: load_test_intensity
+    value: '3'
   - name: test_endpoint_URL
     value: http://35.225.28.249:80
+  - entityType: ENVIRONMENT
+    name: Environment
+    value: Staging Env
+  - entityType: INFRASTRUCTURE_DEFINITION
+    name: InfraDefinition_KUBERNETES
+    value: load-test-staging
