@@ -2,12 +2,15 @@ harnessApiVersion: '1.0'
 type: PIPELINE
 pipelineStages:
 - type: ENV_STATE
-  name: Deploy NGINX into Staging
+  name: Deploy into Staging
   parallel: false
   skipCondition:
     type: DO_NOT_SKIP
   stageName: STAGE 1
   workflowName: combo deployer with load test
+  workflowVariables:
+  - name: replicas
+    value: '3'
 - type: ENV_STATE
   name: load test deployer
   parallel: true
