@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: main
+keyAuth: false
+password: gcpkms:A7x9MUcdQfKbio0qMJ2aPA
+url: https://github.com/asarkar157/create-ec2.git
+urlType: REPO
+username: asarkar157
