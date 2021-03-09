@@ -156,6 +156,27 @@ phases:
   provisionNodes: false
   serviceName: nginx-replicated
   statefulSet: false
+preDeploymentSteps:
+- type: SHELL_SCRIPT
+  name: Shell Script
+  properties:
+    commandPath: null
+    connectionAttributes: null
+    executeOnDelegate: true
+    host: null
+    outputVars: ''
+    publishAsVar: false
+    scriptString: |-
+      echo ${workflow.variables.replicas}
+      echo ${workflow.variables.var1}
+      echo ${workflow.variables.var2}
+    scriptType: BASH
+    sshKeyRef: null
+    sweepingOutputName: null
+    sweepingOutputScope: null
+    templateExpressions: null
+    templateVariables: ''
+    timeoutMillis: 60000
 rollbackPhases:
 - type: KUBERNETES
   computeProviderName: Harness SE Cluster
