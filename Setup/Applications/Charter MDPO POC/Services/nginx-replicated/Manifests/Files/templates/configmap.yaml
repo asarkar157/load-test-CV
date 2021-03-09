@@ -6,8 +6,7 @@ metadata:
   name: mdpo-trigger-vars
 data:
   # property-like keys; each key maps to a simple value
-  workflow_var1: 
-  ui_properties_file_name: "user-interface.properties"
+  workflow_var1: {{.Values.workflow_var1}}
 
   # file-like keys
   game.properties: |
