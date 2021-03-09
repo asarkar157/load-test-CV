@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: APPLICATION
+description: Forked from Disney POC v1, added configmap generation with trigger(workflow) variable input
