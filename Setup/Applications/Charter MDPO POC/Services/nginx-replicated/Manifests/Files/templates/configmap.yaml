@@ -10,4 +10,7 @@ data:
   # property-like keys; each key maps to a simple value
   SVC: "{{ .Values.workflow_var1 }}"
   TEST_URL: "{{ .Values.workflow_var2 }}"
+  IMAGE: ""
+  CHART_VER: ""
+  INTEGRATION_TEST_VER: ""
 
