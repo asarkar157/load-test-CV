@@ -1,2 +1,14 @@
 harnessApiVersion: '1.0'
 type: PIPELINE
+pipelineStages:
+- type: ENV_STATE
+  name: canary-prod
+  parallel: false
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: canary-prod
+  workflowVariables:
+  - name: replicas
+  - name: var2
+  - name: var1
