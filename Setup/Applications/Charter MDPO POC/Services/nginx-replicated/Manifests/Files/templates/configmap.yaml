@@ -6,8 +6,8 @@ metadata:
   name: mdpo-trigger-vars
 data:
   # property-like keys; each key maps to a simple value
-  workflow_var1: {{ .Values.workflow_var1 }}
-  workflow_var2: {{ .Values.workflow_var2 }}
+  workflow_var1: 1#{{ .Values.workflow_var1 }}
+  workflow_var2: 2#{{ .Values.workflow_var2 }}
 
   # file-like keys
   game.properties: |
