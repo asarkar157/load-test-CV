@@ -6,8 +6,8 @@ dockercfg: ${artifact.source.dockerconfig}
 
 test_endpoint: "http://34.122.122.65:80"
 
-workflow_var1: ${workflow.variable.var1}
-workflow_var2: ${workflow.variable.var2}
+workflow_var1: ${workflow.variables.var1}
+workflow_var2: ${workflow.variables.var2}
 
 createNamespace: true
 namespace: ${infra.kubernetes.namespace}
