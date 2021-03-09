@@ -253,6 +253,8 @@ rollbackPhases:
   provisionNodes: false
   serviceName: nginx-replicated
   statefulSet: false
+tags:
+  URL: ${workflow.variables.var1}
 templatized: true
 userVariables:
 - type: TEXT
