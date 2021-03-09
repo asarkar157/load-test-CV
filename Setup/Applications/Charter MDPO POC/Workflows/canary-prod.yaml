@@ -63,6 +63,21 @@ phases:
         templateExpressions: null
         templateVariables: ''
         timeoutMillis: 60000
+    - type: APPROVAL
+      name: Approval
+      properties:
+        approvalStateType: USER_GROUP
+        publishAsVar: true
+        sweepingOutputName: ''
+        sweepingOutputScope: ''
+        timeoutMillis: 86400000
+        userGroups:
+        - Ka0gfWh2RIWzrhNYlW5EmQ
+        variables:
+        - name: URL
+          value: ${workflow.variables.var2}
+        - name: var1
+          value: ${workflow.variables.var1}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
