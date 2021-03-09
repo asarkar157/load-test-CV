@@ -8,14 +8,6 @@ metadata:
   name: mdpo-trigger-vars
 data:
   # property-like keys; each key maps to a simple value
-  workflow_var1: "{{ .Values.workflow_var1 }}"
-  workflow_var2: "2"
+  SVC: "{{ .Values.workflow_var1 }}"
+  TEST_URL: "{{ .Values.workflow_var2 }}"
 
-  # file-like keys
-  game.properties: |
-    enemy.types=aliens,monsters
-    player.maximum-lives=5    
-  user-interface.properties: |
-    color.good=purple
-    color.bad=yellow
-    allow.textmode=true    
