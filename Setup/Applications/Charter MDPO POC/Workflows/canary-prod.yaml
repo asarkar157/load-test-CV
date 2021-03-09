@@ -70,10 +70,17 @@ phases:
         publishAsVar: true
         sweepingOutputName: ''
         sweepingOutputScope: ''
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
         timeoutMillis: 86400000
         userGroups:
         - Ka0gfWh2RIWzrhNYlW5EmQ
         variables:
+        - name: ${workflow.variables.var2}
+          value: URL_2
+        - name: ${workflow.variables.var1}
+          value: URL
         - name: URL
           value: ${workflow.variables.var2}
         - name: var1
