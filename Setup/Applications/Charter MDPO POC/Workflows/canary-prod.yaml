@@ -158,7 +158,7 @@ phases:
   statefulSet: false
 preDeploymentSteps:
 - type: SHELL_SCRIPT
-  name: Shell Script
+  name: Trigger Variable List
   properties:
     commandPath: null
     connectionAttributes: null
@@ -167,15 +167,17 @@ preDeploymentSteps:
     outputVars: ''
     publishAsVar: false
     scriptString: |-
-      echo ${workflow.variables.replicas}
-      echo ${workflow.variables.var1}
-      echo ${workflow.variables.var2}
+      echo Replicas: ${workflow.variables.replicas}
+      echo Image Version: ${workflow.variables.var1}
+      echo URL: ${workflow.variables.var2}
     scriptType: BASH
     sshKeyRef: null
     sweepingOutputName: null
     sweepingOutputScope: null
     templateExpressions: null
-    templateVariables: ''
+    templateUuid: null
+    templateVariables: null
+    templateVersion: null
     timeoutMillis: 60000
 rollbackPhases:
 - type: KUBERNETES
