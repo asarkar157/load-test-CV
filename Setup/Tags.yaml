@@ -2,3 +2,4 @@ harnessApiVersion: '1.0'
 type: TAG
 tag:
 - name: URL
+- name: URL2
