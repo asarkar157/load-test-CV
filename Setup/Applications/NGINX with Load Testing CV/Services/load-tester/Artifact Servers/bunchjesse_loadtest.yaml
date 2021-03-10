@@ -1,1 +1,4 @@
-null
+harnessApiVersion: '1.0'
+type: DOCKER
+imageName: bunchjesse/loadtest
+serverName: Harness Docker Hub
