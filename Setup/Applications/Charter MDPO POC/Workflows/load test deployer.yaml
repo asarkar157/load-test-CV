@@ -26,11 +26,6 @@ phases:
   - type: K8S_PHASE_STEP
     name: Deploy
     steps:
-    - type: BARRIER
-      name: Wait for deployment to complete
-      properties:
-        identifier: A1
-        timeoutMillis: '600000'
     - type: K8S_DELETE
       name: Clean Up Old Load Test Job
       properties:
@@ -40,6 +35,11 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
+    - type: BARRIER
+      name: Wait for deployment to complete
+      properties:
+        identifier: A1
+        timeoutMillis: '600000'
     - type: BARRIER
       name: Wait for Canary deployment to finish
       properties:
