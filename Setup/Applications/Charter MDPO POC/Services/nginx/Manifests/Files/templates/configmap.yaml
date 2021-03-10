@@ -1,0 +1,15 @@
+# harness.io/skip-file-for-deploy
+  #{{ .Values.workflow_var2 }}
+  #
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mdpo-trigger-vars
+data:
+  # property-like keys; each key maps to a simple value
+  SVC: "{{ .Values.workflow_var1 }}"
+  TEST_URL: "{{ .Values.workflow_var2 }}"
+  IMAGE: "{{ .Values.workflow_var2 }}"
+  CHART_VER: "{{ .Values.workflow_var2 }}"
+  INTEGRATION_TEST_VER: "{{ .Values.workflow_var2 }}"
