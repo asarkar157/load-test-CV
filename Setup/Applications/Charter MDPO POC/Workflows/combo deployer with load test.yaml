@@ -181,6 +181,13 @@ phases:
             }
         stateType: STACK_DRIVER
         timeDuration: '5'
+    - type: APPROVAL
+      name: Approval
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 86400000
+        userGroups:
+        - Ka0gfWh2RIWzrhNYlW5EmQ
     stepsInParallel: false
     waitInterval: 5
   - type: K8S_PHASE_STEP
