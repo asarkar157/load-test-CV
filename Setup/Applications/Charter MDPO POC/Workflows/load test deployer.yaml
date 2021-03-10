@@ -25,11 +25,6 @@ phases:
   phaseSteps:
   - type: K8S_PHASE_STEP
     name: Deploy
-    stepSkipStrategies:
-    - assertionExpression: 1==1
-      scope: SPECIFIC_STEPS
-      steps:
-      - Rollout Deployment
     steps:
     - type: BARRIER
       name: Wait for deployment to complete
@@ -50,10 +45,6 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
-    - type: K8S_DEPLOYMENT_ROLLING
-      name: Rollout Deployment
-      properties:
-        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     failureStrategies:
