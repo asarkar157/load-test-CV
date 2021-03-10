@@ -5,20 +5,12 @@ kind: Job
 metadata:
   name: load-testing-{{.Values.name}}
 spec:
-#  selector:
-#    matchLabels:
-#      app: {{.Values.name}}
 #  ttlSecondsAfterFinished: 10
   template:
-    #metadata:
-    #  labels:
-    #    app: {{.Values.name}}
     spec:
       containers:
       - name: load-tester
         image: bunchjesse/loadtest:latest
-        #command:
-        #  - loadtest
         env:
           - name: DURATION
             value: "1020"
