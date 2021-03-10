@@ -183,7 +183,6 @@ rollbackPhases:
   statefulSet: false
 tags:
   URL: ${workflow.variables.var1}
-  URL2: ${workflow.variables.var2}
 templatized: true
 userVariables:
 - type: TEXT
