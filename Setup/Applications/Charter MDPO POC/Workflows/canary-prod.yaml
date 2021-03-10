@@ -36,13 +36,6 @@ phases:
       properties:
         identifier: C1
         timeoutMillis: 60000
-    - type: K8S_APPLY
-      name: Deploy ConfigMap
-      properties:
-        filePaths: templates/configmap.yaml
-        skipDryRun: true
-        skipSteadyStateCheck: true
-        stateTimeoutInMinutes: 10
     - type: SHELL_SCRIPT
       name: Shell Script
       properties:
