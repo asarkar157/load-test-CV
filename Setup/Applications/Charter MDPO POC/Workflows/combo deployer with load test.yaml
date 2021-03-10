@@ -61,6 +61,7 @@ phases:
       specificSteps:
       - Stackdriver Logs Verification
       - Stackdriver Metrics Verification
+      - Stackdriver_2
     name: Verify
     steps:
     - type: STACK_DRIVER_LOG
