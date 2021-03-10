@@ -87,7 +87,7 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
-        timeDuration: '5'
+        timeDuration: '15'
     - type: APPROVAL
       name: Approval
       properties:
