@@ -244,9 +244,9 @@ userVariables:
   fixed: false
   mandatory: false
   name: var1
-  value: '123'
+  value: '0'
 - type: TEXT
   fixed: false
   mandatory: false
   name: var2
-  value: '456'
+  value: '0'
