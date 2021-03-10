@@ -19,4 +19,4 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            cpu: "25m"
+#            cpu: "25m"
