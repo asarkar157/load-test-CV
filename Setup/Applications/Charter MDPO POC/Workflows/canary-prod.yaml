@@ -49,7 +49,7 @@ phases:
         logsConfiguration: false
         metricDefinitions:
         - metricName: CPU Utilization
-          metricType: ERROR
+          metricType: VALUE
           txnName: Overload Index
           filterJson: |-
             {
