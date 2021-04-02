@@ -21,7 +21,7 @@ phases:
   computeProviderName: Harness SE Cluster
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
-  name: Canary
+  name: Canary1
   phaseSteps:
   - type: K8S_PHASE_STEP
     name: Deploy
@@ -61,13 +61,21 @@ phases:
       value: DOCKER
     - name: entityType
       value: INFRASTRUCTURE_DEFINITION
+  - expression: ${Service}
+    fieldName: serviceId
+    metadata:
+    - name: relatedField
+    - name: artifactType
+      value: DOCKER
+    - name: entityType
+      value: SERVICE
 rollbackPhases:
 - type: KUBERNETES
   computeProviderName: Harness SE Cluster
   daemonSet: false
   infraDefinitionName: se-cluster-deployer
-  name: Rollback Canary
-  phaseNameForRollback: Canary
+  name: Rollback Canary1
+  phaseNameForRollback: Canary1
   phaseSteps:
   - type: K8S_PHASE_STEP
     name: Deploy
@@ -89,6 +97,14 @@ rollbackPhases:
       value: DOCKER
     - name: entityType
       value: INFRASTRUCTURE_DEFINITION
+  - expression: ${Service}
+    fieldName: serviceId
+    metadata:
+    - name: relatedField
+    - name: artifactType
+      value: DOCKER
+    - name: entityType
+      value: SERVICE
 templateExpressions:
 - expression: ${Environment}
   fieldName: envId
@@ -104,7 +120,12 @@ userVariables:
   mandatory: true
   name: Environment
 - type: ENTITY
-  description: Variable for Infrastructure Definition entity in Rollback Canary
+  description: Variable for Service entity in Rollback Canary1
+  fixed: false
+  mandatory: true
+  name: Service
+- type: ENTITY
+  description: Variable for Infrastructure Definition entity in Rollback Canary1
   fixed: false
   mandatory: true
   name: InfraDefinition_Kubernetes
