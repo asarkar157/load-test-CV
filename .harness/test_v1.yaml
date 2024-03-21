@@ -1,0 +1,14 @@
+template:
+  name: test
+  identifier: test
+  versionLabel: v1
+  type: Step
+  projectIdentifier: Arunav
+  orgIdentifier: SE_Sandbox
+  tags: {}
+  spec:
+    type: Run
+    spec:
+      shell: Sh
+      command: echo
+    description: test
